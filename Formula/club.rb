@@ -1,5 +1,24 @@
-require File.expand_path("#{HOMEBREW_REPOSITORY}/Library/Taps/homebrew/homebrew-php/Abstract/abstract-php-phar", __FILE__)
+require File.expand_path("#{HOMEBREW_REPOSITORY}/Library/Taps/homebrew/homebrew-php/Abstract/abstract-php-phar.rb", __FILE__)
 require File.expand_path("#{HOMEBREW_REPOSITORY}/Library/Taps/homebrew/homebrew-php/Requirements/composer-requirement.rb", __FILE__)
+
+
+
+
+class HomebrewPhpRequirement < Requirement
+  fatal true
+
+  satisfy { self.class.homebrew_php_is_tapped? }
+
+  def message; <<-EOS.undent
+    "homebrew-php must be tapped `brew tap homebrew/homebrew-php`."
+    EOS
+  end
+
+  def self.homebrew_php_is_tapped?
+    File.exist?("#{HOMEBREW_REPOSITORY}/Library/Taps/homebrew/homebrew-php/Requirements/composer-requirement.rb") &&
+      File.exist?("#{HOMEBREW_REPOSITORY}/Library/Taps/homebrew/homebrew-php/Abstract/abstract-php-phar.rb")
+  end
+end
 
 class VirtualboxRequirement < Requirement
   fatal true
@@ -43,6 +62,7 @@ class Club < AbstractPhpPhar
   sha256 "e631e18b1562f62c7e29a490c1c671c7d5c751f4f582aba5cf76895e477d9598"
 
   depends_on ComposerRequirement
+  depends_on HomebrewPhpRequirement
   depends_on VirtualboxRequirement
   depends_on VagrantRequirement
   depends_on AnsibleRequirment
