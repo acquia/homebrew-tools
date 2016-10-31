@@ -1,5 +1,5 @@
-require File.expand_path("/usr/local/Homebrew/Library/Taps/homebrew/homebrew-php/Abstract/abstract-php-phar", __FILE__)
-require File.expand_path("/usr/local/Homebrew/Library/Taps/homebrew/homebrew-php/Requirements/composer-requirement.rb", __FILE__)
+require File.expand_path("#{HOMEBREW_REPOSITORY}/Library/Taps/homebrew/homebrew-php/Abstract/abstract-php-phar", __FILE__)
+require File.expand_path("#{HOMEBREW_REPOSITORY}/Library/Taps/homebrew/homebrew-php/Requirements/composer-requirement.rb", __FILE__)
 
 class VirtualboxRequirement < Requirement
   fatal true
