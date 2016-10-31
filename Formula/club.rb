@@ -21,7 +21,7 @@ class HomebrewPhpRequirement < Requirement
 end
 
 class VirtualboxRequirement < Requirement
-  fatal true
+  fatal false
 
   satisfy { which("VBoxManage") }
 
@@ -32,7 +32,7 @@ class VirtualboxRequirement < Requirement
 end
 
 class VagrantRequirement < Requirement
-  fatal true
+  fatal false
 
   satisfy { which("vagrant") }
 
