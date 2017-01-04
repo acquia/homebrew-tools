@@ -58,8 +58,8 @@ class Club < AbstractPhpPhar
   init
   desc "Command-line utility for BLT"
   homepage "https://github.com/acquia/club"
-  url "https://github.com/acquia/club/releases/download/0.3/club.phar"
-  sha256 "01d0ceba5ae5960566ba930dcbede23a0cb845c3931c8167da904e92423aa207"
+  url "https://github.com/acquia/club/releases/download/0.4/club.phar"
+  sha256 "6b18b2628f0765b8b6012929d768a2d65323b98ec9f456c2e36526eee8593da7"
 
   depends_on ComposerRequirement
   depends_on HomebrewPhpRequirement
